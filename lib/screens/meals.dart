@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app_flutter/models/meals.dart';
+import 'package:meals_app_flutter/widgets/meals/empty_data.dart';
+import 'package:meals_app_flutter/widgets/meals/meals_list.dart';
 
 class MealsScreen extends StatelessWidget {
   final String title;
@@ -13,30 +15,11 @@ class MealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget mainContent = Center(
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
-        Text(
-          'Nothing here',
-          style: Theme.of(context)
-              .textTheme
-              .headlineLarge!
-              .copyWith(color: Theme.of(context).colorScheme.onBackground),
-        ),
-        const SizedBox(height: 16),
-        Text(
-          'Try selecting a different category!',
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: Theme.of(context).colorScheme.onBackground),
-        ),
-      ]),
-    );
+    Widget mainContent = const EmptyMealsData();
 
     if (meals.isNotEmpty) {
-      mainContent = ListView.builder(
-        itemCount: meals.length,
-        itemBuilder: (_, index) => Text(meals[index].title),
+      mainContent = MealsList(
+        meals: meals,
       );
     }
 
