@@ -26,10 +26,6 @@ class MyApp extends StatelessWidget {
       theme: theme,
       // themeMode: ThemeMode.light,
       home: const CategoriesScreen(),
-      //   home: const MealsScreen(
-      //   meals: [],
-      //   title: "Some category",
-      // ),
     );
   }
 }
