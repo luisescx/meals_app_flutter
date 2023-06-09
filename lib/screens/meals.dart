@@ -4,12 +4,12 @@ import 'package:meals_app_flutter/widgets/meals/empty_data.dart';
 import 'package:meals_app_flutter/widgets/meals/meals_list.dart';
 
 class MealsScreen extends StatelessWidget {
-  final String title;
+  final String? title;
   final List<Meal> meals;
 
   const MealsScreen({
     super.key,
-    required this.title,
+    this.title,
     required this.meals,
   });
 
@@ -23,9 +23,13 @@ class MealsScreen extends StatelessWidget {
       );
     }
 
+    if (title == null) {
+      return mainContent;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title!),
       ),
       body: mainContent,
     );
