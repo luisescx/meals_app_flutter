@@ -6,13 +6,11 @@ import 'package:meals_app_flutter/widgets/meals/meals_list.dart';
 class MealsScreen extends StatelessWidget {
   final String? title;
   final List<Meal> meals;
-  final void Function(Meal meal) onToggleFavorites;
 
   const MealsScreen({
     super.key,
     this.title,
     required this.meals,
-    required this.onToggleFavorites,
   });
 
   @override
@@ -22,7 +20,6 @@ class MealsScreen extends StatelessWidget {
     if (meals.isNotEmpty) {
       mainContent = MealsList(
         meals: meals,
-        onToggleFavorites: onToggleFavorites,
       );
     }
 
